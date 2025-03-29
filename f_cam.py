@@ -1,17 +1,7 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 from random import uniform, randrange
 
 from values import Value
 import pandas as pd
-
-
-# In[2]:
-
 
 class Timestamp(Value):    
     def increment(self):
@@ -44,10 +34,6 @@ class Signal2(Value):
             self.value = 0
         else:
             self.value = 80 + randrange(-10,10, 1)
-
-
-# In[3]:
-
 
 def generate_front_camera_data(output_file = "f_cam_out.csv", number_of_frames = 2000):
     timestamp = Timestamp(100_000_000, "μs")
@@ -85,10 +71,6 @@ def generate_front_camera_data(output_file = "f_cam_out.csv", number_of_frames =
     })
 
     df.to_csv(output_file, index=False)
-
-
-# In[4]:
-
 
 dataFrame = generate_front_camera_data()
 

@@ -1,16 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[5]:
-
-
 import pandas as pd
 from values import Value
 from random import randrange, uniform
-
-
-# In[6]:
-
 
 class Timestamp(Value):
     def increment(self):
@@ -25,10 +15,6 @@ class Speed(Value):
         else:
             self.value += 0.56
             self.value = round(self.value, 2)
-
-
-# In[7]:
-
 
 def generate_sensor_data(output_file = "sensor_out.csv", number_of_frames = 2000):
     timestamp = Timestamp(100_000_000, "μs")
@@ -49,10 +35,6 @@ def generate_sensor_data(output_file = "sensor_out.csv", number_of_frames = 2000
     })
 
     df.to_csv(output_file, index=False)
-
-
-# In[8]:
-
 
 generate_sensor_data()
 
