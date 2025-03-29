@@ -1,4 +1,6 @@
+#!/usr/bin/env python3
 import pandas as pd
+import sys
 
 def generate_resim(output_path = "resim.csv", camera_data_path = 'f_cam_out.csv', sensor_data_path = 'sensor_out.csv'):
     camera = pd.read_csv(camera_data_path)
@@ -28,3 +30,13 @@ def generate_resim(output_path = "resim.csv", camera_data_path = 'f_cam_out.csv'
     resim.to_csv(output_path, index=False)
     
     return output_path
+
+arguments = sys.argv
+if len(arguments) == 1:
+    generate_resim()
+elif len(arguments) == 2:
+    generate_resim(output_file=arguments[1])
+elif len(arguments) == 4:
+    generate_resim(output_file=arguments[1], camera_data_path=arguments[1], sensor_data_path=arguments[2])
+else:
+    print("INVALID NUMBER OF ARGUMENTS")
