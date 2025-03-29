@@ -24,7 +24,21 @@ This project is a Python-based evaluation provided by Valeo. Below is a quick ov
     ```
 
 4. **Run the Project**:
-    Execute the main script:
+    Execute the main script creating resim_out.csv:
     ```bash
     ./main.py
     ```
+    or specifing output_path of recim_out.csv
+    ```bash
+    ./main.py specified_recim_output.csv
+    ```
+    or using scripts individually
+    ```bash
+    ./f_cam.py
+    ./f_cam.py specified_f_cam_output.csv
+    ```
+    ```bash
+    ./sensor.py
+    ./sensor.py specified_sensor_output.csv
+    ```
+   
