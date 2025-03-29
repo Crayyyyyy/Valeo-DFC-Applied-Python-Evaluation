@@ -1,6 +1,11 @@
+#!/usr/bin/env python3
+
 import pandas as pd
+import sys
+
 from values import Value
 from random import randrange, uniform
+
 
 class Timestamp(Value):
     def increment(self):
@@ -16,7 +21,7 @@ class Speed(Value):
             self.value += 0.56
             self.value = round(self.value, 2)
 
-def generate_sensor_data(output_file = "sensor_out.csv", number_of_frames = 2000):
+def generate_sensor_data(output_file = "sensor_out.csv", timestamp_trashold = 160_000_000):
     timestamp = Timestamp(100_000_000, "μs")
     speed = Speed(60, "km/h")
 
@@ -24,7 +29,7 @@ def generate_sensor_data(output_file = "sensor_out.csv", number_of_frames = 2000
         timestamp : [timestamp.value],
         speed : [speed.value]
     }
-    while(timestamp.value <= 160_000_000):
+    while(timestamp.value <= timestamp_trashold):
         for obj, arr in pairs.items():
             obj.increment()
             arr.append(obj.value)
@@ -35,6 +40,12 @@ def generate_sensor_data(output_file = "sensor_out.csv", number_of_frames = 2000
     })
 
     df.to_csv(output_file, index=False)
+    return output_file
 
-generate_sensor_data()
-
+arguments = sys.argv
+if len(arguments) == 1:
+    generate_sensor_data()
+elif len(arguments) == 2:
+    generate_sensor_data(output_file=arguments[1])
+else:
+    print("INVALID NUMBER OF ARGUMENTS")

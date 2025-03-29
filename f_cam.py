@@ -1,7 +1,10 @@
+#!/usr/bin/env python3
+
 from random import uniform, randrange
 
 from values import Value
 import pandas as pd
+import sys
 
 class Timestamp(Value):    
     def increment(self):
@@ -71,6 +74,13 @@ def generate_front_camera_data(output_file = "f_cam_out.csv", number_of_frames =
     })
 
     df.to_csv(output_file, index=False)
+    return output_file
 
-dataFrame = generate_front_camera_data()
 
+arguments = sys.argv
+if len(arguments) == 1:
+    generate_front_camera_data()
+elif len(arguments) == 2:
+    generate_front_camera_data(output_file=arguments[1])
+else:
+    print("INVALID NUMBER OF ARGUMENTS")

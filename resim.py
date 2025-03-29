@@ -1,8 +1,8 @@
 import pandas as pd
 
-def generate_resim(output_path = "resim.csv"):
-    camera = pd.read_csv('f_cam_out.csv')
-    sensor = pd.read_csv('sensor_out.csv')
+def generate_resim(output_path = "resim.csv", camera_data_path = 'f_cam_out.csv', sensor_data_path = 'sensor_out.csv'):
+    camera = pd.read_csv(camera_data_path)
+    sensor = pd.read_csv(sensor_data_path)
 
     cameraSpeed = []
     sensorSpeed = []
@@ -27,4 +27,4 @@ def generate_resim(output_path = "resim.csv"):
     })
     resim.to_csv(output_path, index=False)
     
-generate_resim()
+    return output_path
