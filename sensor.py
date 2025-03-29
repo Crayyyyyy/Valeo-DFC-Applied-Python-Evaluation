@@ -21,7 +21,7 @@ class Speed(Value):
             self.value += 0.56
             self.value = round(self.value, 2)
 
-def generate_sensor_data(output_file = "sensor_out.csv", timestamp_trashold = 160_000_000):
+def generate_sensor_data(output_path = "sensor_out.csv", timestamp_trashold = 160_000_000):
     timestamp = Timestamp(100_000_000, "μs")
     speed = Speed(60, "km/h")
 
@@ -39,13 +39,13 @@ def generate_sensor_data(output_file = "sensor_out.csv", timestamp_trashold = 16
         "Speed" : pairs[speed],
     })
 
-    df.to_csv(output_file, index=False)
-    return output_file
+    df.to_csv(output_path, index=False)
+    return output_path
 
 arguments = sys.argv
 if len(arguments) == 1:
     generate_sensor_data()
 elif len(arguments) == 2:
-    generate_sensor_data(output_file=arguments[1])
+    generate_sensor_data(output_path=arguments[1])
 else:
     print("INVALID NUMBER OF ARGUMENTS")
