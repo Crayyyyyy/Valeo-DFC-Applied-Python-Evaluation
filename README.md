@@ -41,4 +41,8 @@ This project is a Python-based evaluation provided by Valeo. Below is a quick ov
     ./sensor.py
     ./sensor.py specified_sensor_output.csv
     ```
+    ```
+    ```bash
+    ./recim.py specified_recim_output.csv specified_f_cam_input.csv specified_camera_input.csv 
+    ```
    
