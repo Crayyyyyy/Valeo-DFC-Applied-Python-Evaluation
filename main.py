@@ -22,3 +22,4 @@ elif len(arguments) == 2:
     print(f"Resim data saved to: {resim_path}")
 else:
     print("INVALID NUMBER OF ARGUMENTS")
+

@@ -49,3 +49,5 @@ elif len(arguments) == 2:
     generate_sensor_data(output_path=arguments[1])
 else:
     print("INVALID NUMBER OF ARGUMENTS")
+    
+    

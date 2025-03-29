@@ -43,3 +43,5 @@ elif len(arguments) == 4:
     generate_resim(output_path=arguments[1], camera_data_path=arguments[1], sensor_data_path=arguments[2])
 else:
     print("INVALID NUMBER OF ARGUMENTS")
+    
+    
