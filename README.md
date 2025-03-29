@@ -13,7 +13,7 @@ This project is a Python-based evaluation provided by Valeo. Below is a quick ov
 2. **Set Up the Environment**:
     Ensure you have Python 3.x installed. Create and activate a virtual environment:
     ```bash
-    python -m venv venv
+    python3 -m venv venv
     source venv/bin/activate  # On Windows: venv\Scripts\activate
     ```
 
@@ -26,5 +26,5 @@ This project is a Python-based evaluation provided by Valeo. Below is a quick ov
 4. **Run the Project**:
     Execute the main script:
     ```bash
-    python main.py
+    ./main.py
     ```
